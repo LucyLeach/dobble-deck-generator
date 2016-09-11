@@ -3,8 +3,8 @@ package uk.co.lucyleach;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Sets;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Card
 {
@@ -14,7 +14,7 @@ public class Card
   public Card(String name)
   {
     this.name = name;
-    symbols = new HashSet<>();
+    symbols = new TreeSet<>();
   }
 
   private Card(String name, Set<String> symbols)
@@ -27,13 +27,13 @@ public class Card
     if(symbols.contains(symbol))
       throw new IllegalArgumentException("Already contains symbol " + symbol);
 
-    Set<String> newSymbols = new HashSet<>(symbols);
+    Set<String> newSymbols = new TreeSet<>(symbols);
     newSymbols.add(symbol);
     return new Card(name, newSymbols);
   }
 
   public static Card createCard(String name, String... symbols) {
-    return new Card(name, Sets.newHashSet(symbols));
+    return new Card(name, Sets.newTreeSet(Sets.newHashSet(symbols)));
   }
 
   public int howManyMatchingSymbols(Card otherCard) {

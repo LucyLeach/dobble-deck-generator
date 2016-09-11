@@ -1,18 +1,25 @@
 package uk.co.lucyleach;
 
-import java.util.Set;
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 public class DeckGenerator
 {
   private final CardNameGenerator cardNameGenerator = new CardNameGenerator();
   private final SymbolNameGenerator symbolNameGenerator = new SymbolNameGenerator();
 
-  public Set<Card> generate(int deckSize) {
+  public List<Card> generate(int deckSize) {
     System.out.println("Generating with " + deckSize + " cards");
-    return null;
+    return Lists.newArrayList(
+          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName()),
+          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName()),
+          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName())
+        );
   }
 
   public static void main(String[] args) {
-    new DeckGenerator().generate(3);
+    List<Card> deck = new DeckGenerator().generate(3);
+    deck.forEach(System.out::println);
   }
 }
