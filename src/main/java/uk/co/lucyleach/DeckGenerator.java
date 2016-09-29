@@ -6,16 +6,9 @@ import java.util.List;
 
 public class DeckGenerator
 {
-  private final CardNameGenerator cardNameGenerator = new CardNameGenerator();
-  private final SymbolNameGenerator symbolNameGenerator = new SymbolNameGenerator();
-
   public List<Card> generate(int deckSize) {
-    System.out.println("Generating with " + deckSize + " cards");
-    return Lists.newArrayList(
-          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName()),
-          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName()),
-          Card.createCard(cardNameGenerator.getNextCardName(), symbolNameGenerator.getNextSymbolName(), symbolNameGenerator.getNextSymbolName())
-        );
+    System.out.println("I do nothing");
+    return Lists.newArrayList();
   }
 
   public static void main(String[] args) {
